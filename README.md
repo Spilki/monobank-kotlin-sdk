@@ -13,7 +13,7 @@ Kotlin SDK for the [Monobank Acquiring API](https://monobank.ua/api-docs/acquiri
 
 ```kotlin
 dependencies {
-    implementation("app.spilki.monobank:acquiring-sdk:0.1.0")
+    implementation("app.spilki:monobank-acquiring-sdk:0.1.0")
 }
 ```
 
@@ -21,7 +21,7 @@ dependencies {
 
 ```groovy
 dependencies {
-    implementation 'app.spilki.monobank:acquiring-sdk:0.1.0'
+    implementation 'app.spilki:monobank-acquiring-sdk:0.1.0'
 }
 ```
 
@@ -29,8 +29,8 @@ dependencies {
 
 ```xml
 <dependency>
-    <groupId>app.spilki.monobank</groupId>
-    <artifactId>acquiring-sdk</artifactId>
+    <groupId>app.spilki</groupId>
+    <artifactId>monobank-acquiring-sdk</artifactId>
     <version>0.1.0</version>
 </dependency>
 ```

@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.kotlin.jvm)
     alias(libs.plugins.detekt)
     alias(libs.plugins.ktlint)
+    alias(libs.plugins.nexus.publish)
     `java-library`
     `maven-publish`
     signing
@@ -71,7 +72,7 @@ publishing {
                     "Kotlin SDK for Monobank Acquiring API — invoice management, " +
                         "subscriptions, wallet tokenization, QR payments, webhooks, and more.",
                 )
-                url.set("https://github.com/TODO/monobank-kotlin-sdk")
+                url.set("https://github.com/Spilki/monobank-kotlin-sdk")
                 licenses {
                     license {
                         name.set("MIT License")
@@ -85,23 +86,10 @@ publishing {
                     }
                 }
                 scm {
-                    connection.set("scm:git:git://github.com/TODO/monobank-kotlin-sdk.git")
-                    developerConnection.set("scm:git:ssh://github.com/TODO/monobank-kotlin-sdk.git")
-                    url.set("https://github.com/TODO/monobank-kotlin-sdk")
+                    connection.set("scm:git:git://github.com/Spilki/monobank-kotlin-sdk.git")
+                    developerConnection.set("scm:git:ssh://github.com/Spilki/monobank-kotlin-sdk.git")
+                    url.set("https://github.com/Spilki/monobank-kotlin-sdk")
                 }
-            }
-        }
-    }
-
-    repositories {
-        maven {
-            name = "OSSRH"
-            val releasesRepoUrl = uri("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/")
-            val snapshotsRepoUrl = uri("https://s01.oss.sonatype.org/content/repositories/snapshots/")
-            url = if (version.toString().endsWith("SNAPSHOT")) snapshotsRepoUrl else releasesRepoUrl
-            credentials {
-                username = findProperty("ossrhUsername") as String? ?: System.getenv("OSSRH_USERNAME")
-                password = findProperty("ossrhPassword") as String? ?: System.getenv("OSSRH_PASSWORD")
             }
         }
     }
@@ -113,5 +101,16 @@ signing {
     if (signingKey != null && signingPassword != null) {
         useInMemoryPgpKeys(signingKey, signingPassword)
         sign(publishing.publications["maven"])
+    }
+}
+
+nexusPublishing {
+    repositories {
+        sonatype {
+            nexusUrl.set(uri("https://ossrh-staging-api.central.sonatype.com/service/local/"))
+            snapshotRepositoryUrl.set(uri("https://central.sonatype.com/repository/maven-snapshots/"))
+            username.set(findProperty("ossrhUsername") as String? ?: System.getenv("OSSRH_USERNAME"))
+            password.set(findProperty("ossrhPassword") as String? ?: System.getenv("OSSRH_PASSWORD"))
+        }
     }
 }

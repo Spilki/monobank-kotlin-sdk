@@ -9,7 +9,6 @@ import app.spilki.monobank.acquiring.model.invoice.InvoiceStatusResponse
  * Webhook body structure is identical to the Invoice Status API response.
  */
 public object WebhookParser {
-
     /**
      * Deserializes a webhook JSON body into [InvoiceStatusResponse].
      *
@@ -19,5 +18,8 @@ public object WebhookParser {
      */
     @JvmStatic
     public fun parse(json: String): InvoiceStatusResponse =
-        JsonCodec.read(json, InvoiceStatusResponse::class.java)
+        JsonCodec.read(
+            json,
+            InvoiceStatusResponse::class.java,
+        )
 }

@@ -7,7 +7,7 @@ Kotlin SDK for the Monobank Acquiring API. Provides typed clients for all mercha
 ## Architecture
 
 ```
-ua.monobank.acquiring/
+app.spilki.monobank.acquiring/
 ├── MonobankAcquiring.kt           — Main facade, entry point
 ├── MonobankAcquiringConfig.kt     — Configuration (token, URLs, timeouts)
 ├── exception/                     — Sealed exception hierarchy

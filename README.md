@@ -13,7 +13,7 @@ Kotlin SDK for the [Monobank Acquiring API](https://monobank.ua/api-docs/acquiri
 
 ```kotlin
 dependencies {
-    implementation("ua.monobank:monobank-kotlin-sdk:0.1.0")
+    implementation("app.spilki.monobank:acquiring-sdk:0.1.0")
 }
 ```
 
@@ -21,7 +21,7 @@ dependencies {
 
 ```groovy
 dependencies {
-    implementation 'ua.monobank:monobank-kotlin-sdk:0.1.0'
+    implementation 'app.spilki.monobank:acquiring-sdk:0.1.0'
 }
 ```
 
@@ -29,8 +29,8 @@ dependencies {
 
 ```xml
 <dependency>
-    <groupId>ua.monobank</groupId>
-    <artifactId>monobank-kotlin-sdk</artifactId>
+    <groupId>app.spilki.monobank</groupId>
+    <artifactId>acquiring-sdk</artifactId>
     <version>0.1.0</version>
 </dependency>
 ```
@@ -38,9 +38,9 @@ dependencies {
 ## Quick Start
 
 ```kotlin
-import ua.monobank.acquiring.MonobankAcquiring
-import ua.monobank.acquiring.MonobankAcquiringConfig
-import ua.monobank.acquiring.model.invoice.CreateInvoiceRequest
+import app.spilki.monobank.acquiring.MonobankAcquiring
+import app.spilki.monobank.acquiring.MonobankAcquiringConfig
+import app.spilki.monobank.acquiring.model.invoice.CreateInvoiceRequest
 
 val mono = MonobankAcquiring(
     MonobankAcquiringConfig(token = "your-merchant-token")
@@ -82,7 +82,7 @@ println("Status: ${status.status}")
 ### Hold & Finalize
 
 ```kotlin
-import ua.monobank.acquiring.model.common.PaymentType
+import app.spilki.monobank.acquiring.model.common.PaymentType
 
 // Create a hold
 val hold = mono.invoices.create(
@@ -196,7 +196,7 @@ MonobankAcquiringConfig(
 All API errors throw typed exceptions inheriting from `MonobankException`:
 
 ```kotlin
-import ua.monobank.acquiring.exception.*
+import app.spilki.monobank.acquiring.exception.*
 
 try {
     mono.invoices.status("invalid-id")

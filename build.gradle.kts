@@ -81,7 +81,7 @@ publishing {
                 developers {
                     developer {
                         id.set("damienmiheev")
-                        name.set("Damien Miheev")
+                        name.set("Dmytro Mikhieiev")
                     }
                 }
                 scm {
